@@ -1,0 +1,166 @@
+/* Mobile-first styles for temple album */
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #4fc3f7;
+    --text-color: #333;
+    --background-color: #f9f9f9;
+    --header-footer-bg: #4a6fa5;
+    --header-footer-text: #fff;
+    --nav-hover: #166088;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+#menu-button {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.navigation {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--header-footer-bg);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+.navigation.open {
+    display: flex;
+}
+
+.navigation li {
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.navigation a {
+    color: var(--header-footer-text);
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.navigation a:hover {
+    background-color: var(--nav-hover);
+    transform: translateY(-2px);
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+main h1 {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    margin: 1rem 0;
+    color: var(--primary-color);
+}
+
+.temple-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.temple-grid figure {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.temple-grid figure:hover {
+    transform: scale(1.03);
+}
+
+.temple-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.temple-grid img:hover {
+    opacity: 0.9;
+}
+
+.temple-grid figcaption {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
