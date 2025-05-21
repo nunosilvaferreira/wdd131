@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Matosinhos, a beautiful coastal city near Porto, Portugal">
+    <title>Matosinhos, Portugal | WDD 131 Week 03 Assignment</title>
+    <link rel="stylesheet" href="styles/place.css">
+    <link rel="stylesheet" href="styles/place_small.css" media="(max-width: 767px)">
+    <script src="scripts/place.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Matosinhos, Portugal</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Attractions</a></li>
+                <li><a href="#">Cuisine</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <picture>
+                <source srcset="images/matosinhos-large.webp" media="(min-width: 1200px)">
+                <source srcset="images/matosinhos-medium.webp" media="(min-width: 768px)">
+                <img src="images/matosinhos-small.webp" alt="View of Matosinhos beach and ocean" loading="lazy">
+            </picture>
+        </section>
+
+        <section class="info">
+            <h2>About Matosinhos</h2>
+            <p>Matosinhos is a vibrant coastal city in the Porto Metropolitan Area, known for its beautiful beaches, fresh seafood, and rich cultural heritage. Located just northwest of Porto, it offers a perfect blend of urban convenience and seaside relaxation.</p>
+        </section>
+
+        <section class="weather">
+            <h2>Weather</h2>
+            <div class="weather-content">
+                <div class="weather-icon">
+                    <img src="images/weather-icon.svg" alt="Weather icon" class="mobile-icon">
+                </div>
+                <div class="weather-data">
+                    <p>Current Temperature: <span id="temp">18</span>°C</p>
+                    <p>Wind Speed: <span id="wind-speed">12</span> km/h</p>
+                    <p>Wind Chill: <span id="wind-chill">N/A</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="attractions">
+            <h2>Top Attractions</h2>
+            <ul>
+                <li>Matosinhos Beach - A beautiful sandy beach perfect for surfing</li>
+                <li>Leça da Palmeira - Picturesque coastal area with a lighthouse</li>
+                <li>She Changes - Iconic sculpture by Janet Echelman</li>
+                <li>Municipal Market - Fresh seafood and local products</li>
+                <li>Piscinas das Marés - Famous tidal pools designed by Álvaro Siza Vieira</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> | Matosinhos, Portugal | WDD 131 Week 03 Assignment</p>
+        <p>Last Modified: <span id="last-modified"></span></p>
+    </footer>
+</body>
+</html>
