@@ -1,0 +1,14 @@
+W04 Project: Website Subject 
+
+1. Project Subject
+Web Development Student Resource Library
+
+2. Description of Planned Content
+This website will be a digital library of helpful resources for students learning web development. 
+It will include sections for HTML, CSS, JavaScript, useful tools, tutorials, articles, and code snippets. 
+Each resource will have a brief description and a link. I’m planning to add a JavaScript filter feature to sort resources by category and also a simple “favorites” option using local storage.
+
+3. Reason
+I chose this topic because I’m currently studying web development and often find myself searching for good learning resources. 
+Creating this site not only helps me organize the content I use and trust, but it also gives me a chance to practice what I’m learning in class—like building responsive pages, working with JavaScript events, and dynamically updating HTML. 
+I believe this project will be both useful and meaningful for me and for others in a similar learning journey.
