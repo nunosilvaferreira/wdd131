@@ -1,19 +1,6 @@
-// Track review count using localStorage
-document.addEventListener('DOMContentLoaded', function() {
-    const reviewCountElement = document.getElementById('reviewCount');
-    
-    // Get current count from localStorage or initialize to 0
-    let count = localStorage.getItem('reviewCount');
-    if (count === null) {
-        count = 0;
-    } else {
-        count = parseInt(count);
-    }
-    
-    // Increment count and update localStorage
-    count++;
-    localStorage.setItem('reviewCount', count);
-    
-    // Update the display
-    reviewCountElement.textContent += count;
+document.addEventListener("DOMContentLoaded", () => {
+  const count = localStorage.getItem("reviewCount") || 0;
+  const newCount = parseInt(count) + 1;
+  localStorage.setItem("reviewCount", newCount);
+  document.getElementById("reviewCount").textContent = newCount;
 });
