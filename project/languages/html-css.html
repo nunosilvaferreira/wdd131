@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML and CSS knowledge from WDD130 course">
+    <title>Code Library | HTML/CSS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Code Library</div>
+        <nav>
+            <button id="hamburger">☰</button>
+            <ul id="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="python.html">Python</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
+                <li class="active"><a href="html-css.html">HTML/CSS</a></li>
+                <li><a href="csharp.html">C#</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="language-header">
+            <h1>HTML & CSS</h1>
+            <p>From WDD130 (Web Fundamentals)</p>
+        </section>
+
+        <section class="concepts">
+            <article>
+                <h2>HTML Structure</h2>
+                <div class="code-example">
+                    <h3>Basic HTML Document</h3>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;p&gt;Welcome to my site!&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2023 My Site&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </article>
+
+            <article>
+                <h2>CSS Layout</h2>
+                <div class="code-example">
+                    <h3>Flexbox Example</h3>
+                    <pre><code>.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item {
+    flex: 1;
+    margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}</code></pre>
+                </div>
+            </article>
+
+            <article>
+                <h2>CSS Variables</h2>
+                <div class="code-example">
+                    <h3>Using CSS Custom Properties</h3>
+                    <pre><code>:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --font-main: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: var(--primary-color);
+    font-family: var(--font-main);
+}
+
+button {
+    background-color: var(--secondary-color);
+}</code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section class="interactive-demo">
+            <h2>CSS Grid Builder</h2>
+            <div class="grid-controls">
+                <div>
+                    <label for="grid-cols">Columns:</label>
+                    <input type="number" id="grid-cols" min="1" max="6" value="3">
+                </div>
+                <div>
+                    <label for="grid-gap">Gap (px):</label>
+                    <input type="number" id="grid-gap" min="0" max="30" value="10">
+                </div>
+                <div>
+                    <label for="grid-template">Template:</label>
+                    <select id="grid-template">
+                        <option value="equal">Equal columns</option>
+                        <option value="sidebar">Sidebar layout</option>
+                        <option value="masonry">Masonry</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="grid-demo" class="grid-demo">
+                <div class="grid-item">1</div>
+                <div class="grid-item">2</div>
+                <div class="grid-item">3</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">5</div>
+                <div class="grid-item">6</div>
+            </div>
+            
+            <div id="grid-code" class="code-output"></div>
+        </section>
+
+        <section class="quiz">
+            <h2>HTML/CSS Knowledge Check</h2>
+            <form id="html-css-quiz">
+                <div class="quiz-question">
+                    <p>1. Which HTML5 element is used for navigation links?</p>
+                    <label><input type="radio" name="q1" value="A"> &lt;links&gt;</label>
+                    <label><input type="radio" name="q1" value="B"> &lt;nav&gt;</label>
+                    <label><input type="radio" name="q1" value="C"> &lt;navigation&gt;</label>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. Which CSS property enables flexbox layout?</p>
+                    <label><input type="radio" name="q2" value="A"> display: flex</label>
+                    <label><input type="radio" name="q2" value="B"> layout: flex</label>
+                    <label><input type="radio" name="q2" value="C"> position: flex</label>
+                </div>
+                
+                <button type="button" id="submit-html-css-quiz">Check Answers</button>
+                <div id="html-css-quiz-result"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Code Library. All rights reserved.</p>
+        <p><a href="../references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+        // Grid Builder Demo
+        const gridCols = document.getElementById('grid-cols');
+        const gridGap = document.getElementById('grid-gap');
+        const gridTemplate = document.getElementById('grid-template');
+        const gridDemo = document.getElementById('grid-demo');
+        const gridCode = document.getElementById('grid-code');
+
+        function updateGridDemo() {
+            const cols = gridCols.value;
+            const gap = gridGap.value;
+            const template = gridTemplate.value;
+            
+            let gridTemplateColumns = '';
+            
+            switch(template) {
+                case 'equal':
+                    gridTemplateColumns = `repeat(${cols}, 1fr)`;
+                    break;
+                case 'sidebar':
+                    gridTemplateColumns = `200px repeat(${cols - 1}, 1fr)`;
+                    break;
+                case 'masonry':
+                    gridTemplateColumns = `repeat(auto-fill, minmax(150px, 1fr))`;
+                    break;
+            }
+            
+            gridDemo.style.display = 'grid';
+            gridDemo.style.gap = `${gap}px`;
+            gridDemo.style.gridTemplateColumns = gridTemplateColumns;
+            
+            // Generate code output
+            gridCode.innerHTML = `
+                <h3>CSS Code:</h3>
+                <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: ${gridTemplateColumns};
+    gap: ${gap}px;
+}</code></pre>
+            `;
+            
+            // Save settings to localStorage
+            localStorage.setItem('gridSettings', JSON.stringify({
+                cols, gap, template
+            }));
+        }
+        
+        // Load saved settings if exists
+        const savedGridSettings = localStorage.getItem('gridSettings');
+        if (savedGridSettings) {
+            const { cols, gap, template } = JSON.parse(savedGridSettings);
+            gridCols.value = cols;
+            gridGap.value = gap;
+            gridTemplate.value = template;
+        }
+        
+        // Add event listeners
+        [gridCols, gridGap, gridTemplate].forEach(el => {
+            el.addEventListener('change', updateGridDemo);
+            el.addEventListener('input', updateGridDemo);
+        });
+        
+        // Initialize
+        updateGridDemo();
+
+        // Quiz functionality
+        document.getElementById('submit-html-css-quiz').addEventListener('click', () => {
+            const answers = {
+                q1: 'B',
+                q2: 'A'
+            };
+            
+            let score = 0;
+            const form = document.getElementById('html-css-quiz');
+            const resultDiv = document.getElementById('html-css-quiz-result');
+            
+            for (const question in answers) {
+                const selected = form.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+            
+            resultDiv.innerHTML = `
+                <p>You scored ${score} out of ${Object.keys(answers).length}</p>
+                <p>${score === Object.keys(answers).length ? 'Well done!' : 'Review the material!'}</p>
+            `;
+            
+            const quizAttempt = {
+                date: new Date().toISOString(),
+                score: score,
+                total: Object.keys(answers).length
+            };
+            
+            let quizHistory = JSON.parse(localStorage.getItem('htmlCssQuizHistory')) || [];
+            quizHistory.push(quizAttempt);
+            localStorage.setItem('htmlCssQuizHistory', JSON.stringify(quizHistory));
+        });
+    </script>
+</body>
+</html>

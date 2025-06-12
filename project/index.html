@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Library showcasing programming knowledge from various courses">
+    <title>Code Library | Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Code Library</div>
+        <nav>
+            <button id="hamburger">☰</button>
+            <ul id="nav-menu">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="languages/python.html">Python</a></li>
+                <li><a href="languages/javascript.html">JavaScript</a></li>
+                <li><a href="languages/html-css.html">HTML/CSS</a></li>
+                <li><a href="languages/csharp.html">C#</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to My Code Library</h1>
+            <p>A collection of programming knowledge from my academic journey</p>
+            <a href="#languages" class="btn">Explore Languages</a>
+        </section>
+
+        <section id="languages" class="language-grid">
+            <article class="language-card">
+                <a href="languages/python.html">
+                    <img src="images/python-logo.png" alt="Python logo" loading="lazy">
+                    <h2>Python</h2>
+                    <p>Fundamentals and OOP from CSE110 & CSE111</p>
+                </a>
+            </article>
+            
+            <article class="language-card">
+                <a href="languages/javascript.html">
+                    <img src="images/js-logo.png" alt="JavaScript logo" loading="lazy">
+                    <h2>JavaScript</h2>
+                    <p>Web interactivity from WDD131</p>
+                </a>
+            </article>
+            
+            <article class="language-card">
+                <a href="languages/html-css.html">
+                    <img src="images/html-css-logo.png" alt="HTML/CSS logo" loading="lazy">
+                    <h2>HTML/CSS</h2>
+                    <p>Web fundamentals from WDD130</p>
+                </a>
+            </article>
+            
+            <article class="language-card">
+                <a href="languages/csharp.html">
+                    <img src="images/csharp-logo.png" alt="C# logo" loading="lazy">
+                    <h2>C#</h2>
+                    <p>Programming with classes from CSE210</p>
+                </a>
+            </article>
+        </section>
+
+        <section class="recent-activity">
+            <h2>Recent Activity</h2>
+            <div id="activity-feed"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Code Library. Nuno Ferreira | All rights reserved.</p>
+        <p><a href="references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

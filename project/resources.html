@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Additional resources for programming languages">
+    <title>Code Library | Resources</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Code Library</div>
+        <nav>
+            <button id="hamburger">☰</button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="languages/python.html">Python</a></li>
+                <li><a href="languages/javascript.html">JavaScript</a></li>
+                <li><a href="languages/html-css.html">HTML/CSS</a></li>
+                <li><a href="languages/csharp.html">C#</a></li>
+                <li class="active"><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="resources-header">
+            <h1>Programming Resources</h1>
+            <p>Additional learning materials and useful links for each language</p>
+        </section>
+
+        <section class="resource-categories">
+            <article class="resource-card" id="python-resources">
+                <h2>Python Resources</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>Official Documentation</h3>
+                        <p>Comprehensive Python documentation and tutorials</p>
+                        <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Visit Site</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Real Python</h3>
+                        <p>Tutorials and articles for Python developers of all levels</p>
+                        <a href="https://realpython.com/" target="_blank" rel="noopener noreferrer">Visit Site</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Python Crash Course</h3>
+                        <p>Excellent beginner-friendly book by Eric Matthes</p>
+                        <a href="https://nostarch.com/pythoncrashcourse2e" target="_blank" rel="noopener noreferrer">View Book</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="resource-card" id="javascript-resources">
+                <h2>JavaScript Resources</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>MDN Web Docs</h3>
+                        <p>Comprehensive JavaScript reference from Mozilla</p>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">Visit Site</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>JavaScript.info</h3>
+                        <p>Modern JavaScript tutorial from basics to advanced topics</p>
+                        <a href="https://javascript.info/" target="_blank" rel="noopener noreferrer">Visit Site</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Eloquent JavaScript</h3>
+                        <p>Free online book with interactive exercises</p>
+                        <a href="https://eloquentjavascript.net/" target="_blank" rel="noopener noreferrer">Read Book</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="resource-card" id="html-css-resources">
+                <h2>HTML & CSS Resources</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>CSS-Tricks</h3>
+                        <p>Daily articles about CSS, HTML, and front-end development</p>
+                        <a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">Visit Site</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Flexbox Froggy</h3>
+                        <p>Interactive game for learning CSS Flexbox</p>
+                        <a href="https://flexboxfroggy.com/" target="_blank" rel="noopener noreferrer">Play Game</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>HTML & CSS: Design and Build Websites</h3>
+                        <p>Excellent beginner book by Jon Duckett</p>
+                        <a href="https://www.htmlandcssbook.com/" target="_blank" rel="noopener noreferrer">View Book</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="resource-card" id="csharp-resources">
+                <h2>C# Resources</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>Microsoft Docs</h3>
+                        <p>Official C# documentation and tutorials</p>
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noopener noreferrer">Visit Site</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>C# Station</h3>
+                        <p>Tutorials and articles for C# developers</p>
+                        <a href="https://www.csharp-station.com/" target="_blank" rel="noopener noreferrer">Visit Site</a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>C# in Depth</h3>
+                        <p>Comprehensive book by Jon Skeet</p>
+                        <a href="https://csharpindepth.com/" target="_blank" rel="noopener noreferrer">View Book</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="bookmark-section">
+            <h2>Save Your Favorite Resources</h2>
+            <div class="bookmark-controls">
+                <input type="text" id="bookmark-name" placeholder="Resource name">
+                <input type="url" id="bookmark-url" placeholder="https://example.com">
+                <select id="bookmark-category">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="html-css">HTML/CSS</option>
+                    <option value="csharp">C#</option>
+                    <option value="other">Other</option>
+                </select>
+                <button id="add-bookmark">Add Bookmark</button>
+            </div>
+            <div id="bookmarks-list">
+                <h3>Your Saved Bookmarks</h3>
+                <ul id="bookmarks-container"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Code Library. Nuno Ferreria | All rights reserved.</p>
+        <p><a href="references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script>
+        // Bookmark functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const bookmarkName = document.getElementById('bookmark-name');
+            const bookmarkUrl = document.getElementById('bookmark-url');
+            const bookmarkCategory = document.getElementById('bookmark-category');
+            const addBookmarkBtn = document.getElementById('add-bookmark');
+            const bookmarksContainer = document.getElementById('bookmarks-container');
+
+            // Load bookmarks from localStorage
+            function loadBookmarks() {
+                const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+                bookmarksContainer.innerHTML = '';
+                
+                if (bookmarks.length === 0) {
+                    bookmarksContainer.innerHTML = '<p>No bookmarks saved yet.</p>';
+                    return;
+                }
+                
+                bookmarks.forEach((bookmark, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'bookmark-item';
+                    li.innerHTML = `
+                        <span class="bookmark-category ${bookmark.category}">${bookmark.category}</span>
+                        <a href="${bookmark.url}" target="_blank">${bookmark.name}</a>
+                        <button class="delete-bookmark" data-index="${index}">×</button>
+                    `;
+                    bookmarksContainer.appendChild(li);
+                });
+                
+                // Add event listeners to delete buttons
+                document.querySelectorAll('.delete-bookmark').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = e.target.getAttribute('data-index');
+                        deleteBookmark(index);
+                    });
+                });
+            }
+            
+            // Add new bookmark
+            function addBookmark() {
+                const name = bookmarkName.value.trim();
+                const url = bookmarkUrl.value.trim();
+                const category = bookmarkCategory.value;
+                
+                if (!name || !url) {
+                    alert('Please enter both name and URL');
+                    return;
+                }
+                
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    alert('Please enter a valid URL starting with http:// or https://');
+                    return;
+                }
+                
+                const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+                bookmarks.push({ name, url, category });
+                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                
+                // Clear inputs
+                bookmarkName.value = '';
+                bookmarkUrl.value = '';
+                
+                // Reload bookmarks
+                loadBookmarks();
+            }
+            
+            // Delete bookmark
+            function deleteBookmark(index) {
+                const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+                bookmarks.splice(index, 1);
+                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                loadBookmarks();
+            }
+            
+            // Event listeners
+            addBookmarkBtn.addEventListener('click', addBookmark);
+            
+            // Load initial bookmarks
+            loadBookmarks();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="C# programming knowledge from CSE210 course">
+    <title>Code Library | C#</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Code Library</div>
+        <nav>
+            <button id="hamburger">☰</button>
+            <ul id="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="python.html">Python</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
+                <li><a href="html-css.html">HTML/CSS</a></li>
+                <li class="active"><a href="csharp.html">C#</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="language-header">
+            <h1>C# Programming</h1>
+            <p>From CSE210 (Programming with Classes)</p>
+        </section>
+
+        <section class="concepts">
+            <article>
+                <h2>Classes and Objects</h2>
+                <div class="code-example">
+                    <h3>Class Definition</h3>
+                    <pre><code>public class Person
+{
+    // Properties
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    // Constructor
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+
+    // Method
+    public string Introduce()
+    {
+        return $"My name is {Name} and I'm {Age} years old.";
+    }
+}
+
+// Usage
+Person person = new Person("Alice", 30);
+Console.WriteLine(person.Introduce());</code></pre>
+                </div>
+            </article>
+
+            <article>
+                <h2>Inheritance</h2>
+                <div class="code-example">
+                    <h3>Base and Derived Classes</h3>
+                    <pre><code>public class Vehicle
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    
+    public virtual void Start()
+    {
+        Console.WriteLine("Starting vehicle");
+    }
+}
+
+public class Car : Vehicle
+{
+    public int Doors { get; set; }
+    
+    public override void Start()
+    {
+        Console.WriteLine("Starting car");
+    }
+}
+
+// Usage
+Vehicle myCar = new Car();
+myCar.Make = "Toyota";
+myCar.Model = "Camry";
+myCar.Start();</code></pre>
+                </div>
+            </article>
+
+            <article>
+                <h2>Design Patterns</h2>
+                <div class="code-example">
+                    <h3>Singleton Pattern</h3>
+                    <pre><code>public class Singleton
+{
+    private static Singleton _instance;
+    
+    private Singleton() { }
+    
+    public static Singleton Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new Singleton();
+            }
+            return _instance;
+        }
+    }
+    
+    public void DoSomething()
+    {
+        Console.WriteLine("Singleton action");
+    }
+}
+
+// Usage
+Singleton.Instance.DoSomething();</code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section class="interactive-demo">
+            <h2>Code Runner</h2>
+            <div class="code-runner">
+                <select id="csharp-example">
+                    <option value="class">Class Example</option>
+                    <option value="inheritance">Inheritance Example</option>
+                    <option value="singleton">Singleton Example</option>
+                </select>
+                <button id="run-code">Run Code</button>
+                <div id="code-output"></div>
+            </div>
+        </section>
+
+        <section class="quiz">
+            <h2>C# Knowledge Check</h2>
+            <form id="csharp-quiz">
+                <div class="quiz-question">
+                    <p>1. Which keyword is used for inheritance in C#?</p>
+                    <label><input type="radio" name="q1" value="A"> extends</label>
+                    <label><input type="radio" name="q1" value="B"> inherits</label>
+                    <label><input type="radio" name="q1" value="C"> : (colon)</label>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. What is the purpose of the 'virtual' keyword?</p>
+                    <label><input type="radio" name="q2" value="A"> To make a method non-overridable</label>
+                    <label><input type="radio" name="q2" value="B"> To allow a method to be overridden in derived classes</label>
+                    <label><input type="radio" name="q2" value="C"> To create a static method</label>
+                </div>
+                
+                <button type="button" id="submit-csharp-quiz">Check Answers</button>
+                <div id="csharp-quiz-result"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Code Library. All rights reserved.</p>
+        <p><a href="../references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+        // Code Runner Demo
+        const codeExamples = {
+            class: {
+                code: `public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+
+    public string Introduce()
+    {
+        return $"My name is {Name} and I'm {Age} years old.";
+    }
+}
+
+Person person = new Person("Alice", 30);
+Console.WriteLine(person.Introduce());`,
+                output: "My name is Alice and I'm 30 years old."
+            },
+            inheritance: {
+                code: `public class Vehicle
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    
+    public virtual void Start()
+    {
+        Console.WriteLine("Starting vehicle");
+    }
+}
+
+public class Car : Vehicle
+{
+    public int Doors { get; set; }
+    
+    public override void Start()
+    {
+        Console.WriteLine("Starting car");
+    }
+}
+
+Vehicle myCar = new Car();
+myCar.Make = "Toyota";
+myCar.Model = "Camry";
+myCar.Start();`,
+                output: "Starting car"
+            },
+            singleton: {
+                code: `public class Singleton
+{
+    private static Singleton _instance;
+    
+    private Singleton() { }
+    
+    public static Singleton Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new Singleton();
+            }
+            return _instance;
+        }
+    }
+    
+    public void DoSomething()
+    {
+        Console.WriteLine("Singleton action");
+    }
+}
+
+Singleton.Instance.DoSomething();`,
+                output: "Singleton action"
+            }
+        };
+
+        document.getElementById('run-code').addEventListener('click', () => {
+            const example = document.getElementById('csharp-example').value;
+            const outputDiv = document.getElementById('code-output');
+            
+            outputDiv.innerHTML = `
+                <h3>Code:</h3>
+                <pre><code>${codeExamples[example].code}</code></pre>
+                <h3>Output:</h3>
+                <pre>${codeExamples[example].output}</pre>
+            `;
+            
+            // Save last run example
+            localStorage.setItem('lastCSharpExample', example);
+        });
+
+        // Load last run example if exists
+        const lastExample = localStorage.getItem('lastCSharpExample');
+        if (lastExample) {
+            document.getElementById('csharp-example').value = lastExample;
+        }
+
+        // Quiz functionality
+        document.getElementById('submit-csharp-quiz').addEventListener('click', () => {
+            const answers = {
+                q1: 'C',
+                q2: 'B'
+            };
+            
+            let score = 0;
+            const form = document.getElementById('csharp-quiz');
+            const resultDiv = document.getElementById('csharp-quiz-result');
+            
+            for (const question in answers) {
+                const selected = form.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+            
+            resultDiv.innerHTML = `
+                <p>You scored ${score} out of ${Object.keys(answers).length}</p>
+                <p>${score === Object.keys(answers).length ? 'Great work!' : 'Keep practicing!'}</p>
+            `;
+            
+            const quizAttempt = {
+                date: new Date().toISOString(),
+                score: score,
+                total: Object.keys(answers).length
+            };
+            
+            let quizHistory = JSON.parse(localStorage.getItem('csharpQuizHistory')) || [];
+            quizHistory.push(quizAttempt);
+            localStorage.setItem('csharpQuizHistory', JSON.stringify(quizHistory));
+        });
+    </script>
+</body>
+</html>

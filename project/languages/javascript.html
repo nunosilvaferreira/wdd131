@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript programming knowledge from WDD131 course">
+    <title>Code Library | JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Code Library</div>
+        <nav>
+            <button id="hamburger">☰</button>
+            <ul id="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="python.html">Python</a></li>
+                <li class="active"><a href="javascript.html">JavaScript</a></li>
+                <li><a href="html-css.html">HTML/CSS</a></li>
+                <li><a href="csharp.html">C#</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="language-header">
+            <h1>JavaScript Programming</h1>
+            <p>From WDD131 (Dynamic Web Fundamentals)</p>
+        </section>
+
+        <section class="concepts">
+            <article>
+                <h2>DOM Manipulation</h2>
+                <div class="code-example">
+                    <h3>Selecting and Modifying Elements</h3>
+                    <pre><code>// Select element by ID
+const header = document.getElementById('header');
+
+// Change text content
+header.textContent = 'New Header Text';
+
+// Change style
+header.style.color = 'blue';</code></pre>
+                </div>
+            </article>
+
+            <article>
+                <h2>Event Handling</h2>
+                <div class="code-example">
+                    <h3>Click Event Listener</h3>
+                    <pre><code>const button = document.querySelector('.btn');
+
+button.addEventListener('click', (event) => {
+    console.log('Button clicked!');
+    event.target.textContent = 'Clicked!';
+});</code></pre>
+                </div>
+            </article>
+
+            <article>
+                <h2>Local Storage</h2>
+                <div class="code-example">
+                    <h3>Storing and Retrieving Data</h3>
+                    <pre><code>// Store data
+localStorage.setItem('username', 'JohnDoe');
+
+// Retrieve data
+const username = localStorage.getItem('username');
+
+// Remove data
+localStorage.removeItem('username');</code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section class="interactive-demo">
+            <h2>Interactive Demo</h2>
+            <div class="demo-container">
+                <div id="color-box" style="width: 200px; height: 200px; background-color: #3498db; margin: 1rem 0;"></div>
+                <button id="change-color">Change Color</button>
+                <button id="reset-color">Reset</button>
+                <div>
+                    <label for="bg-input">Enter custom color (hex or name):</label>
+                    <input type="text" id="bg-input">
+                    <button id="apply-custom">Apply</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz">
+            <h2>JavaScript Knowledge Check</h2>
+            <form id="js-quiz">
+                <div class="quiz-question">
+                    <p>1. Which method is used to select elements by CSS selector?</p>
+                    <label><input type="radio" name="q1" value="A"> getElementById()</label>
+                    <label><input type="radio" name="q1" value="B"> querySelector()</label>
+                    <label><input type="radio" name="q1" value="C"> getElementsByTagName()</label>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. How do you store data in localStorage?</p>
+                    <label><input type="radio" name="q2" value="A"> localStorage.saveItem(key, value)</label>
+                    <label><input type="radio" name="q2" value="B"> localStorage.setItem(key, value)</label>
+                    <label><input type="radio" name="q2" value="C"> localStorage.store(key, value)</label>
+                </div>
+                
+                <button type="button" id="submit-js-quiz">Check Answers</button>
+                <div id="js-quiz-result"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Code Library. All rights reserved.</p>
+        <p><a href="../references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+        // Interactive Demo
+        const colorBox = document.getElementById('color-box');
+        const changeColorBtn = document.getElementById('change-color');
+        const resetColorBtn = document.getElementById('reset-color');
+        const applyCustomBtn = document.getElementById('apply-custom');
+        const bgInput = document.getElementById('bg-input');
+
+        const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6'];
+        let currentColorIndex = 0;
+
+        changeColorBtn.addEventListener('click', () => {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            colorBox.style.backgroundColor = colors[currentColorIndex];
+            localStorage.setItem('savedColor', colors[currentColorIndex]);
+        });
+
+        resetColorBtn.addEventListener('click', () => {
+            colorBox.style.backgroundColor = '#3498db';
+            currentColorIndex = 0;
+            localStorage.removeItem('savedColor');
+        });
+
+        applyCustomBtn.addEventListener('click', () => {
+            const customColor = bgInput.value.trim();
+            if (customColor) {
+                colorBox.style.backgroundColor = customColor;
+                localStorage.setItem('savedColor', customColor);
+            }
+        });
+
+        // Load saved color if exists
+        const savedColor = localStorage.getItem('savedColor');
+        if (savedColor) {
+            colorBox.style.backgroundColor = savedColor;
+        }
+
+        // Quiz functionality
+        document.getElementById('submit-js-quiz').addEventListener('click', () => {
+            const answers = {
+                q1: 'B',
+                q2: 'B'
+            };
+            
+            let score = 0;
+            const form = document.getElementById('js-quiz');
+            const resultDiv = document.getElementById('js-quiz-result');
+            
+            for (const question in answers) {
+                const selected = form.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+            
+            resultDiv.innerHTML = `
+                <p>You scored ${score} out of ${Object.keys(answers).length}</p>
+                <p>${score === Object.keys(answers).length ? 'Excellent!' : 'Keep learning!'}</p>
+            `;
+            
+            const quizAttempt = {
+                date: new Date().toISOString(),
+                score: score,
+                total: Object.keys(answers).length
+            };
+            
+            let quizHistory = JSON.parse(localStorage.getItem('jsQuizHistory')) || [];
+            quizHistory.push(quizAttempt);
+            localStorage.setItem('jsQuizHistory', JSON.stringify(quizHistory));
+        });
+    </script>
+</body>
+</html>
