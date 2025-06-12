@@ -6,13 +6,19 @@ const lastModified = document.getElementById('last-modified');
 const activityFeed = document.getElementById('activity-feed');
 
 // Mobile Menu Toggle
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+}
 
 // Update footer year and last modified
-currentYear.textContent = new Date().getFullYear();
-lastModified.textContent = document.lastModified;
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
+if (lastModified) {
+    lastModified.textContent = document.lastModified;
+}
 
 // Activity Feed Data
 const activities = [
@@ -35,6 +41,8 @@ const activities = [
 
 // Display Activities
 function displayActivities() {
+    if (!activityFeed) return;
+    
     // Sort by date (newest first)
     activities.sort((a, b) => new Date(b.date) - new Date(a.date));
     
@@ -58,10 +66,11 @@ function formatDate(dateString) {
     return new Date(dateString).toLocaleDateString(undefined, options);
 }
 
-// Theme preference using localStorage
+// Theme functionality
 function checkThemePreference() {
     const preferredTheme = localStorage.getItem('theme') || 'light';
     document.body.classList.toggle('dark-theme', preferredTheme === 'dark');
+    updateThemeButton(preferredTheme);
 }
 
 function toggleTheme() {
@@ -70,24 +79,17 @@ function toggleTheme() {
     
     localStorage.setItem('theme', newTheme);
     document.body.classList.toggle('dark-theme', newTheme === 'dark');
+    updateThemeButton(newTheme);
     
     return newTheme;
 }
 
-// Initialize page
-document.addEventListener('DOMContentLoaded', () => {
-    displayActivities();
-    checkThemePreference();
-    
-    // Add theme toggle button if not exists
-    if (!document.getElementById('theme-toggle')) {
-        const themeToggle = document.createElement('button');
-        themeToggle.id = 'theme-toggle';
-        themeToggle.textContent = 'Toggle Dark Mode';
-        themeToggle.addEventListener('click', toggleTheme);
-        document.querySelector('header').appendChild(themeToggle);
+function updateThemeButton(theme) {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     }
-});
+}
 
 // Form validation for contact page
 if (document.getElementById('contact-form')) {
@@ -118,7 +120,7 @@ if (document.getElementById('contact-form')) {
             timestamp: new Date().toISOString()
         };
         
-        let submissions = JSON.parse(localStorage.getItem('formSubmissions') || []);
+        let submissions = JSON.parse(localStorage.getItem('formSubmissions')) || [];
         submissions.push(formData);
         localStorage.setItem('formSubmissions', JSON.stringify(submissions));
         
@@ -126,3 +128,57 @@ if (document.getElementById('contact-form')) {
         contactForm.reset();
     });
 }
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize theme
+    checkThemePreference();
+    
+    // Add theme toggle button if not exists
+    if (!document.getElementById('theme-toggle')) {
+        const themeToggle = document.createElement('button');
+        themeToggle.id = 'theme-toggle';
+        themeToggle.className = 'theme-toggle-btn';
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Add to header
+        const header = document.querySelector('header');
+        if (header) {
+            header.appendChild(themeToggle);
+        }
+    }
+    
+    // Update theme button text
+    updateThemeButton(localStorage.getItem('theme') || 'light');
+    
+    // Initialize other components
+    displayActivities();
+    
+    // Quiz initializations (if any exist on page)
+    if (document.getElementById('submit-quiz')) {
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+            // Quiz submission logic
+        });
+    }
+    
+    if (document.getElementById('submit-js-quiz')) {
+        document.getElementById('submit-js-quiz').addEventListener('click', () => {
+            // JavaScript quiz submission logic
+        });
+    }
+    
+    if (document.getElementById('submit-html-css-quiz')) {
+        document.getElementById('submit-html-css-quiz').addEventListener('click', () => {
+            // HTML/CSS quiz submission logic
+        });
+    }
+    
+    if (document.getElementById('submit-csharp-quiz')) {
+        document.getElementById('submit-csharp-quiz').addEventListener('click', () => {
+            // C# quiz submission logic
+        });
+    }
+});
+
+// Make toggleTheme available globally for inline event handlers
+window.toggleTheme = toggleTheme;

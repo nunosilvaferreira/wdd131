@@ -30,12 +30,63 @@
             <p>From CSE210 (Programming with Classes)</p>
         </section>
 
-        <section class="concepts">
-            <article>
-                <h2>Classes and Objects</h2>
-                <div class="code-example">
-                    <h3>Class Definition</h3>
-                    <pre><code>public class Person
+        <section class="function-summary">
+            <h2>Key C# Features</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>Console.WriteLine()</h3>
+                    <p>Outputs text to the console</p>
+                    <div class="syntax">Console.WriteLine(<em>value</em>);</div>
+                </div>
+                <div class="summary-card">
+                    <h3>String.Format()</h3>
+                    <p>Formats strings with placeholders</p>
+                    <div class="syntax">String.Format(<em>format</em>, <em>args</em>);</div>
+                </div>
+                <div class="summary-card">
+                    <h3>List&lt;T&gt;</h3>
+                    <p>Generic collection of strongly typed objects</p>
+                    <div class="syntax">List&lt;<em>type</em>&gt; <em>name</em> = new List&lt;<em>type</em>&gt;();</div>
+                </div>
+                <div class="summary-card">
+                    <h3>LINQ</h3>
+                    <p>Language Integrated Query for data operations</p>
+                    <div class="syntax">from <em>item</em> in <em>collection</em> where <em>condition</em> select <em>item</em>;</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="code-examples">
+            <h2>C# Code Examples</h2>
+            
+            <article class="code-section">
+                <h3>Basic Syntax</h3>
+                <div class="code-box">
+                    <pre><code>// Variables and types
+string name = "Alice";
+int age = 25;
+bool isStudent = true;
+
+// Conditional statement
+if (age >= 18)
+{
+    Console.WriteLine($"{name} is an adult");
+}
+else
+{
+    Console.WriteLine($"{name} is a minor");
+}
+
+// Array initialization
+int[] numbers = { 1, 2, 3, 4, 5 };</code></pre>
+                </div>
+            </article>
+
+            <article class="code-section">
+                <h3>Object-Oriented Programming</h3>
+                <div class="code-box">
+                    <pre><code>// Class definition
+public class Person
 {
     // Properties
     public string Name { get; set; }
@@ -56,74 +107,37 @@
 }
 
 // Usage
-Person person = new Person("Alice", 30);
+var person = new Person("Bob", 30);
 Console.WriteLine(person.Introduce());</code></pre>
                 </div>
             </article>
 
-            <article>
-                <h2>Inheritance</h2>
-                <div class="code-example">
-                    <h3>Base and Derived Classes</h3>
-                    <pre><code>public class Vehicle
+            <article class="code-section">
+                <h3>Advanced Features</h3>
+                <div class="code-box">
+                    <pre><code>// Inheritance
+public class Student : Person
 {
-    public string Make { get; set; }
-    public string Model { get; set; }
+    public string StudentId { get; set; }
     
-    public virtual void Start()
+    public Student(string name, int age, string studentId) 
+        : base(name, age)
     {
-        Console.WriteLine("Starting vehicle");
+        StudentId = studentId;
     }
 }
 
-public class Car : Vehicle
+// Interface
+public interface IShape
 {
-    public int Doors { get; set; }
-    
-    public override void Start()
-    {
-        Console.WriteLine("Starting car");
-    }
+    double Area();
 }
 
-// Usage
-Vehicle myCar = new Car();
-myCar.Make = "Toyota";
-myCar.Model = "Camry";
-myCar.Start();</code></pre>
-                </div>
-            </article>
-
-            <article>
-                <h2>Design Patterns</h2>
-                <div class="code-example">
-                    <h3>Singleton Pattern</h3>
-                    <pre><code>public class Singleton
-{
-    private static Singleton _instance;
-    
-    private Singleton() { }
-    
-    public static Singleton Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new Singleton();
-            }
-            return _instance;
-        }
-    }
-    
-    public void DoSomething()
-    {
-        Console.WriteLine("Singleton action");
-    }
-}
-
-// Usage
-Singleton.Instance.DoSomething();</code></pre>
+// LINQ query
+var numbers = new List&lt;int&gt; { 1, 2, 3, 4, 5 };
+var evenNumbers = from n in numbers 
+                  where n % 2 == 0 
+                  select n;</code></pre>
                 </div>
             </article>
         </section>
@@ -134,7 +148,7 @@ Singleton.Instance.DoSomething();</code></pre>
                 <select id="csharp-example">
                     <option value="class">Class Example</option>
                     <option value="inheritance">Inheritance Example</option>
-                    <option value="singleton">Singleton Example</option>
+                    <option value="linq">LINQ Example</option>
                 </select>
                 <button id="run-code">Run Code</button>
                 <div id="code-output"></div>
@@ -224,33 +238,17 @@ myCar.Model = "Camry";
 myCar.Start();`,
                 output: "Starting car"
             },
-            singleton: {
-                code: `public class Singleton
-{
-    private static Singleton _instance;
-    
-    private Singleton() { }
-    
-    public static Singleton Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new Singleton();
-            }
-            return _instance;
-        }
-    }
-    
-    public void DoSomething()
-    {
-        Console.WriteLine("Singleton action");
-    }
-}
+            linq: {
+                code: `var numbers = new List&lt;int&gt; { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+var evenSquares = from n in numbers
+                  where n % 2 == 0
+                  select n * n;
 
-Singleton.Instance.DoSomething();`,
-                output: "Singleton action"
+foreach (var num in evenSquares)
+{
+    Console.WriteLine(num);
+}`,
+                output: "4\n16\n36\n64\n100"
             }
         };
 

@@ -30,47 +30,95 @@
             <p>From WDD131 (Dynamic Web Fundamentals)</p>
         </section>
 
-        <section class="concepts">
-            <article>
-                <h2>DOM Manipulation</h2>
-                <div class="code-example">
-                    <h3>Selecting and Modifying Elements</h3>
-                    <pre><code>// Select element by ID
-const header = document.getElementById('header');
+        <section class="function-summary">
+            <h2>Key JavaScript Functions</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>querySelector()</h3>
+                    <p>Selects the first element matching a CSS selector</p>
+                    <div class="syntax">document.querySelector(<em>selector</em>) → Element</div>
+                </div>
+                <div class="summary-card">
+                    <h3>addEventListener()</h3>
+                    <p>Attaches an event handler to an element</p>
+                    <div class="syntax">element.addEventListener(<em>event</em>, <em>handler</em>)</div>
+                </div>
+                <div class="summary-card">
+                    <h3>JSON.parse()</h3>
+                    <p>Converts a JSON string to a JavaScript object</p>
+                    <div class="syntax">JSON.parse(<em>jsonString</em>) → Object</div>
+                </div>
+                <div class="summary-card">
+                    <h3>setTimeout()</h3>
+                    <p>Executes a function after a delay</p>
+                    <div class="syntax">setTimeout(<em>callback</em>, <em>delay</em>) → timeoutID</div>
+                </div>
+            </div>
+        </section>
 
-// Change text content
-header.textContent = 'New Header Text';
+        <section class="code-examples">
+            <h2>JavaScript Code Examples</h2>
+            
+            <article class="code-section">
+                <h3>DOM Manipulation</h3>
+                <div class="code-box">
+                    <pre><code>// Select elements
+const button = document.querySelector('#myButton');
+const container = document.getElementById('container');
 
-// Change style
-header.style.color = 'blue';</code></pre>
+// Modify elements
+button.textContent = 'Click Me';
+container.style.backgroundColor = '#f0f0f0';
+
+// Create new element
+const newDiv = document.createElement('div');
+newDiv.className = 'alert';
+newDiv.textContent = 'Hello!';
+container.appendChild(newDiv);</code></pre>
                 </div>
             </article>
 
-            <article>
-                <h2>Event Handling</h2>
-                <div class="code-example">
-                    <h3>Click Event Listener</h3>
-                    <pre><code>const button = document.querySelector('.btn');
-
-button.addEventListener('click', (event) => {
+            <article class="code-section">
+                <h3>Event Handling</h3>
+                <div class="code-box">
+                    <pre><code>// Click event
+document.getElementById('myButton').addEventListener('click', function() {
     console.log('Button clicked!');
-    event.target.textContent = 'Clicked!';
+});
+
+// Form submission
+document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = document.querySelector('#username');
+    console.log(`Submitted: ${input.value}`);
+});
+
+// Keyboard events
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        console.log('Escape pressed');
+    }
 });</code></pre>
                 </div>
             </article>
 
-            <article>
-                <h2>Local Storage</h2>
-                <div class="code-example">
-                    <h3>Storing and Retrieving Data</h3>
-                    <pre><code>// Store data
-localStorage.setItem('username', 'JohnDoe');
+            <article class="code-section">
+                <h3>Modern JavaScript Features</h3>
+                <div class="code-box">
+                    <pre><code>// Arrow functions
+const square = x => x * x;
 
-// Retrieve data
-const username = localStorage.getItem('username');
+// Template literals
+const name = 'Alice';
+console.log(`Hello, ${name}!`);
 
-// Remove data
-localStorage.removeItem('username');</code></pre>
+// Destructuring
+const person = { name: 'Bob', age: 30 };
+const { name, age } = person;
+
+// Spread operator
+const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4, 5];</code></pre>
                 </div>
             </article>
         </section>

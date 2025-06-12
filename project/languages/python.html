@@ -30,36 +30,75 @@
             <p>From CSE110 (Programming Building Blocks) and CSE111 (Programming with Functions)</p>
         </section>
 
-        <section class="concepts">
-            <article>
-                <h2>Fundamentals</h2>
-                <div class="code-example">
-                    <h3>Variables and Data Types</h3>
-                    <pre><code># Variables
-name = "John"
+        <section class="function-summary">
+            <h2>Key Python Functions</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>print()</h3>
+                    <p>Outputs text to the console</p>
+                    <div class="syntax">print(<em>object</em>, ..., sep=' ', end='\n')</div>
+                </div>
+                <div class="summary-card">
+                    <h3>len()</h3>
+                    <p>Returns the length of an object</p>
+                    <div class="syntax">len(<em>sequence</em>) → int</div>
+                </div>
+                <div class="summary-card">
+                    <h3>range()</h3>
+                    <p>Generates a sequence of numbers</p>
+                    <div class="syntax">range(<em>start</em>, <em>stop</em>, <em>step</em>)</div>
+                </div>
+                <div class="summary-card">
+                    <h3>input()</h3>
+                    <p>Reads user input from console</p>
+                    <div class="syntax">input(<em>prompt</em>) → str</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="code-examples">
+            <h2>Python Code Examples</h2>
+            
+            <article class="code-section">
+                <h3>Basic Syntax</h3>
+                <div class="code-box">
+                    <pre><code># Variables and data types
+name = "Alice"
 age = 25
-height = 5.9
-is_student = True</code></pre>
+is_student = True
+
+# Conditional statement
+if age >= 18:
+    print(f"{name} is an adult")
+else:
+    print(f"{name} is a minor")
+
+# List comprehension
+squares = [x**2 for x in range(10)]</code></pre>
                 </div>
             </article>
 
-            <article>
-                <h2>Functions</h2>
-                <div class="code-example">
-                    <h3>Function Definition</h3>
-                    <pre><code>def greet(name):
-    """Greets a person by name"""
-    return f"Hello, {name}!"
+            <article class="code-section">
+                <h3>Functions</h3>
+                <div class="code-box">
+                    <pre><code># Function definition
+def greet(name, greeting="Hello"):
+    """Returns a greeting message"""
+    return f"{greeting}, {name}!"
 
-message = greet("Alice")
-print(message)  # Output: Hello, Alice!</code></pre>
+# Calling a function
+message = greet("Bob", "Hi")
+print(message)  # Output: Hi, Bob!
+
+# Lambda function
+square = lambda x: x * x
+print(square(5))  # Output: 25</code></pre>
                 </div>
             </article>
 
-            <article>
-                <h2>Object-Oriented Programming</h2>
-                <div class="code-example">
-                    <h3>Class Example</h3>
+            <article class="code-section">
+                <h3>Object-Oriented Programming</h3>
+                <div class="code-box">
                     <pre><code>class Person:
     def __init__(self, name, age):
         self.name = name
@@ -68,8 +107,14 @@ print(message)  # Output: Hello, Alice!</code></pre>
     def introduce(self):
         return f"My name is {self.name} and I'm {self.age} years old."
 
-person1 = Person("Bob", 30)
-print(person1.introduce())</code></pre>
+# Inheritance
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+student = Student("Carol", 20, "S12345")
+print(student.introduce())</code></pre>
                 </div>
             </article>
         </section>

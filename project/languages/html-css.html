@@ -30,24 +30,61 @@
             <p>From WDD130 (Web Fundamentals)</p>
         </section>
 
-        <section class="concepts">
-            <article>
-                <h2>HTML Structure</h2>
-                <div class="code-example">
-                    <h3>Basic HTML Document</h3>
+        <section class="function-summary">
+            <h2>Key HTML/CSS Features</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>Flexbox</h3>
+                    <p>One-dimensional layout model for arranging items</p>
+                    <div class="syntax">display: flex;</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Grid</h3>
+                    <p>Two-dimensional layout system for rows and columns</p>
+                    <div class="syntax">display: grid;</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Media Queries</h3>
+                    <p>Conditional CSS rules for responsive design</p>
+                    <div class="syntax">@media (max-width: 600px) { ... }</div>
+                </div>
+                <div class="summary-card">
+                    <h3>CSS Variables</h3>
+                    <p>Custom properties for reusable values</p>
+                    <div class="syntax">--main-color: #2c3e50;</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="code-examples">
+            <h2>HTML/CSS Code Examples</h2>
+            
+            <article class="code-section">
+                <h3>HTML Structure</h3>
+                <div class="code-box">
                     <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;header&gt;
         &lt;h1&gt;My Website&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
     &lt;/header&gt;
     &lt;main&gt;
-        &lt;p&gt;Welcome to my site!&lt;/p&gt;
+        &lt;article&gt;
+            &lt;h2&gt;Article Title&lt;/h2&gt;
+            &lt;p&gt;Article content...&lt;/p&gt;
+        &lt;/article&gt;
     &lt;/main&gt;
     &lt;footer&gt;
         &lt;p&gt;&copy; 2023 My Site&lt;/p&gt;
@@ -57,46 +94,62 @@
                 </div>
             </article>
 
-            <article>
-                <h2>CSS Layout</h2>
-                <div class="code-example">
-                    <h3>Flexbox Example</h3>
-                    <pre><code>.container {
+            <article class="code-section">
+                <h3>CSS Layout</h3>
+                <div class="code-box">
+                    <pre><code>/* Flexbox example */
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
-.item {
-    flex: 1;
-    margin: 0 10px;
+/* Grid example */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
     }
 }</code></pre>
                 </div>
             </article>
 
-            <article>
-                <h2>CSS Variables</h2>
-                <div class="code-example">
-                    <h3>Using CSS Custom Properties</h3>
-                    <pre><code>:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --font-main: 'Roboto', sans-serif;
+            <article class="code-section">
+                <h3>CSS Effects</h3>
+                <div class="code-box">
+                    <pre><code>/* Hover effects */
+.button {
+    background-color: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
 }
 
-header {
-    background-color: var(--primary-color);
-    font-family: var(--font-main);
+.button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-button {
-    background-color: var(--secondary-color);
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.element {
+    animation: fadeIn 1s ease-in;
 }</code></pre>
                 </div>
             </article>

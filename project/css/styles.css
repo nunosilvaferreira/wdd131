@@ -403,3 +403,296 @@ footer a {
         grid-template-columns: 1fr;
     }
 }
+
+/* 2.1 Function Summary Styles */
+.function-summary {
+    margin: 2rem 0;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.summary-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.summary-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.summary-card p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.syntax {
+    font-family: var(--font-code);
+    background: var(--code-bg);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--code-text);
+    overflow-x: auto;
+}
+
+/* Code Examples Section */
+.code-examples {
+    margin: 3rem 0;
+}
+
+.code-section {
+    margin-bottom: 2.5rem;
+}
+
+.code-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.code-box {
+    background: var(--code-bg);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.code-box pre {
+    margin: 0;
+}
+
+.code-box code {
+    font-family: var(--font-code);
+    color: var(--code-text);
+    line-height: 1.5;
+}
+
+/* Theme Variables */
+:root {
+    --card-bg: #ffffff;
+    --code-bg: #f8f9fa;
+    --code-text: #333;
+}
+
+.dark-theme {
+    --card-bg: #2d3748;
+    --code-bg: #1a202c;
+    --code-text: #f7fafc;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .code-box {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+    --primary-color: #1a202c;
+    --secondary-color: #4a5568;
+    --light-color: #2d3748;
+    --dark-color: #f7fafc;
+    --text-color: #e2e8f0;
+    --card-bg: #2d3748;
+    --code-bg: #1a202c;
+    --code-text: #f7fafc;
+}
+
+.dark-theme body {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+.dark-theme .resource-item,
+.dark-theme .language-card,
+.dark-theme .summary-card,
+.dark-theme .code-box,
+.dark-theme #activity-feed,
+.dark-theme .quiz,
+.dark-theme .bookmark-section {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.dark-theme .resource-item a,
+.dark-theme .language-card a,
+.dark-theme .summary-card h3,
+.dark-theme .code-section h3,
+.dark-theme .quiz h2,
+.dark-theme .bookmark-section h2,
+.dark-theme .bookmark-section h3 {
+    color: #63b3ed;
+}
+
+.dark-theme .theme-toggle-btn {
+    background-color: #4a5568;
+}
+
+/* Dark Mode Styles for Contact and Resources Pages */
+.dark-theme .contact-form-section,
+.dark-theme .bookmark-section,
+.dark-theme .resource-categories {
+    color: #e2e8f0; /* Light gray text for better readability */
+}
+
+.dark-theme .form-group label,
+.dark-theme .bookmark-controls label,
+.dark-theme .resource-card h2 {
+    color: #63b3ed; /* Light blue for headings and labels */
+}
+
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme select {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    border: 1px solid #4a5568;
+}
+
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder {
+    color: #a0aec0;
+}
+
+.dark-theme .resource-item {
+    background-color: #2d3748;
+    border-left: 4px solid #63b3ed;
+}
+
+.dark-theme .resource-item p {
+    color: #cbd5e0;
+}
+
+.dark-theme .resource-item a {
+    background-color: #4a5568;
+    color: #e2e8f0;
+}
+
+.dark-theme .resource-item a:hover {
+    background-color: #63b3ed;
+}
+
+.dark-theme .bookmark-item a {
+    color: #63b3ed;
+}
+
+.dark-theme .bookmark-item a:hover {
+    color: #90cdf4;
+    text-decoration: underline;
+}
+
+/* Dark Mode Global Text Colors */
+.dark-theme {
+    color: #e2e8f0; /* Light gray for all text */
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6 {
+    color: #ffffff; /* White for headings */
+}
+
+.dark-theme a {
+    color: #63b3ed; /* Light blue for links */
+}
+
+.dark-theme a:hover {
+    color: #90cdf4; /* Lighter blue on hover */
+}
+
+/* Specific component adjustments */
+.dark-theme .language-header h1,
+.dark-theme .language-header p {
+    color: #ffffff;
+}
+
+.dark-theme .summary-card h3 {
+    color: #63b3ed;
+}
+
+.dark-theme .code-section h3 {
+    color: #63b3ed;
+    border-bottom-color: #4a5568;
+}
+
+.dark-theme .quiz h2 {
+    color: #63b3ed;
+    border-bottom-color: #4a5568;
+}
+
+.dark-theme .activity-item h3 {
+    color: #63b3ed;
+}
+
+/* Fix for Python page specific elements */
+.dark-theme .function-summary h2,
+.dark-theme .code-examples h2 {
+    color: #ffffff;
+}
+
+/* Fix for all code boxes */
+.dark-theme .code-box {
+    background-color: #1a202c;
+    border: 1px solid #4a5568;
+}
+
+.dark-theme .code-box code {
+    color: #f7fafc;
+}
+
+/* Ensure all text elements are properly colored */
+.dark-theme p,
+.dark-theme li,
+.dark-theme td,
+.dark-theme th,
+.dark-theme .activity-date,
+.dark-theme .quiz-question p,
+.dark-theme .resource-item p,
+.dark-theme .bookmark-section p {
+    color: #e2e8f0 !important;
+}
