@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basics - Code Library</title>
+    <link rel="stylesheet" href="../css/code-library.css">
+</head>
+<body>
+    <header>
+        <h1>React JavaScript Framework</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="python.html">Python</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="html-css.html">HTML/CSS</a>
+            <a href="csharp.html">C#</a>
+            <a href="mysql.html">MySQL</a>
+            <a href="react.html">React</a>
+            <a href="ajax.html">AJAX</a>
+            <a href="github.html">GitHub</a>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Introduction to React</h2>
+            <p>React is a JavaScript library for building user interfaces. Here's what I've learned about React components, hooks, and core concepts:</p>
+        </section>
+
+        <section class="commands">
+            <h2>React Fundamentals</h2>
+            
+            <div class="command">
+                <h3>Creating a React App</h3>
+                <code>npx create-react-app my-app</code>
+                <p>Sets up a new React project with all necessary dependencies.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Functional Components</h3>
+                <code>function MyComponent() {
+    return &lt;div&gt;Hello World&lt;/div&gt;;
+}</code>
+                <p>The basic building block of React applications.</p>
+            </div>
+            
+            <div class="command">
+                <h3>JSX Syntax</h3>
+                <code>const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;</code>
+                <p>JSX is a syntax extension that allows HTML-like code in JavaScript.</p>
+            </div>
+            
+            <div class="command">
+                <h3>State with useState Hook</h3>
+                <code>const [count, setCount] = useState(0);</code>
+                <p>Manages state in functional components. 'count' is the current value, 'setCount' updates it.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Side Effects with useEffect</h3>
+                <code>useEffect(() => {
+    // Side effect code here
+    return () => {
+        // Cleanup code (optional)
+    };
+}, [dependencies]);</code>
+                <p>Handles side effects like data fetching, subscriptions, or manually changing the DOM.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Props</h3>
+                <code>function Welcome(props) {
+    return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}</code>
+                <p>Pass data from parent to child components.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Conditional Rendering</h3>
+                <code>{isLoggedIn ? &lt;LogoutButton /&gt; : &lt;LoginButton /&gt;}</code>
+                <p>Render different components based on conditions.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Lists and Keys</h3>
+                <code>{numbers.map((number) =>
+    &lt;li key={number.toString()}&gt;{number}&lt;/li&gt;
+)}</code>
+                <p>Render lists of elements and assign unique keys for efficient updates.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="current-year"></span> Code Library. All rights reserved.</p>
+        <p><a href="../references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+    <script src="scripts/code-library.js"></script>
+    <script src="../js/code-library.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

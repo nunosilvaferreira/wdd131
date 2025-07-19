@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Basics - Code Library</title>
+    <link rel="stylesheet" href="../css/code-library.css">
+</head>
+<body>
+    <header>
+        <h1>MySQL Database Basics</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="python.html">Python</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="html-css.html">HTML/CSS</a>
+            <a href="csharp.html">C#</a>
+            <a href="mysql.html">MySQL</a>
+            <a href="react.html">React</a>
+            <a href="ajax.html">AJAX</a>
+            <a href="github.html">GitHub</a>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Introduction to MySQL</h2>
+            <p>MySQL is a popular open-source relational database management system. Here are some essential commands and concepts I've learned:</p>
+        </section>
+
+        <section class="commands">
+            <h2>MySQL Commands</h2>
+            
+            <div class="command">
+                <h3>Connecting to MySQL</h3>
+                <code>mysql -u username -p</code>
+                <p>Connects to the MySQL server with the specified username and prompts for password.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Showing Databases</h3>
+                <code>SHOW DATABASES;</code>
+                <p>Lists all available databases on the server.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Creating a Database</h3>
+                <code>CREATE DATABASE database_name;</code>
+                <p>Creates a new database with the specified name.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Using a Database</h3>
+                <code>USE database_name;</code>
+                <p>Selects a database to work with.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Creating Tables</h3>
+                <code>CREATE TABLE table_name (
+    column1 datatype constraints,
+    column2 datatype constraints,
+    ...
+);</code>
+                <p>Creates a new table with specified columns and data types.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Inserting Data</h3>
+                <code>INSERT INTO table_name (column1, column2, ...)
+VALUES (value1, value2, ...);</code>
+                <p>Adds a new row of data to the table.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Querying Data</h3>
+                <code>SELECT column1, column2 FROM table_name WHERE condition;</code>
+                <p>Retrieves data from the table based on specified conditions.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Updating Data</h3>
+                <code>UPDATE table_name SET column1 = value1 WHERE condition;</code>
+                <p>Modifies existing data in the table.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Deleting Data</h3>
+                <code>DELETE FROM table_name WHERE condition;</code>
+                <p>Removes rows from the table based on conditions.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+      <p>&copy; <span id="current-year"></span> Code Library. All rights reserved.</p>
+        <p><a href="../references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+    <script src="../js/code-library.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

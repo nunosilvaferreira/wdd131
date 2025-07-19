@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Basics - Code Library</title>
+    <link rel="stylesheet" href="../css/code-library.css">
+</head>
+<body>
+    <header>
+        <h1>AJAX Techniques</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="python.html">Python</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="html-css.html">HTML/CSS</a>
+            <a href="csharp.html">C#</a>
+            <a href="mysql.html">MySQL</a>
+            <a href="react.html">React</a>
+            <a href="ajax.html">AJAX</a>
+            <a href="github.html">GitHub</a>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Introduction to AJAX</h2>
+            <p>AJAX (Asynchronous JavaScript and XML) allows web pages to be updated asynchronously by exchanging data with a server. Here are key concepts and methods I've learned:</p>
+        </section>
+
+        <section class="commands">
+            <h2>AJAX Methods and Concepts</h2>
+            
+            <div class="command">
+                <h3>XMLHttpRequest Object</h3>
+                <code>const xhr = new XMLHttpRequest();
+xhr.open('GET', 'url', true);
+xhr.onload = function() {
+    if (xhr.status === 200) {
+        console.log(xhr.responseText);
+    }
+};
+xhr.send();</code>
+                <p>The traditional way to make AJAX requests.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Fetch API</h3>
+                <code>fetch('url')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));</code>
+                <p>Modern promise-based API for making HTTP requests.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Async/Await with Fetch</h3>
+                <code>async function getData() {
+    try {
+        const response = await fetch('url');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}</code>
+                <p>Cleaner syntax for working with promises.</p>
+            </div>
+            
+            <div class="command">
+                <h3>POST Request</h3>
+                <code>fetch('url', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+})
+.then(response => response.json())
+.then(data => console.log(data));</code>
+                <p>Sending data to the server.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Handling JSON</h3>
+                <code>// Parsing JSON
+const obj = JSON.parse(jsonString);
+
+// Stringifying to JSON
+const jsonString = JSON.stringify(obj);</code>
+                <p>Working with JSON data format.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Error Handling</h3>
+                <code>fetch('url')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .catch(error => console.error('Error:', error));</code>
+                <p>Properly handling errors in AJAX requests.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Cross-Origin Requests (CORS)</h3>
+                <code>// Server-side solution
+Access-Control-Allow-Origin: *
+
+// Or with credentials
+Access-Control-Allow-Credentials: true</code>
+                <p>Understanding and handling cross-origin resource sharing.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="current-year"></span> Code Library. All rights reserved.</p>
+        <p><a href="../references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+    <script src="../js/code-library.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

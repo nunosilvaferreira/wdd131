@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub & Git Basics - Code Library</title>
+    <link rel="stylesheet" href="../css/code-library.css">
+</head>
+<body>
+    <header>
+        <h1>GitHub & Git Commands</h1>
+        <nav>
+         <a href="../index.html">Home</a>
+            <a href="python.html">Python</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="html-css.html">HTML/CSS</a>
+            <a href="csharp.html">C#</a>
+            <a href="mysql.html">MySQL</a>
+            <a href="react.html">React</a>
+            <a href="ajax.html">AJAX</a>
+            <a href="github.html">GitHub</a>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Introduction to Git and GitHub</h2>
+            <p>Git is a distributed version control system, and GitHub is a platform for hosting Git repositories. Here are essential Git commands I've learned for terminal usage:</p>
+        </section>
+
+        <section class="commands">
+            <h2>Essential Git Commands</h2>
+            
+            <div class="command">
+                <h3>Initializing a Repository</h3>
+                <code>git init</code>
+                <p>Creates a new Git repository in the current directory.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Cloning a Repository</h3>
+                <code>git clone https://github.com/user/repo.git</code>
+                <p>Creates a local copy of a remote repository.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Checking Status</h3>
+                <code>git status</code>
+                <p>Shows the current state of the working directory and staging area.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Adding Changes to Staging</h3>
+                <code>git add filename</code>
+                <p>Adds a specific file to the staging area.</p>
+                <code>git add .</code>
+                <p>Adds all changed files to the staging area.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Committing Changes</h3>
+                <code>git commit -m "Commit message"</code>
+                <p>Records changes to the repository with a descriptive message.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Viewing Commit History</h3>
+                <code>git log</code>
+                <p>Shows the commit history.</p>
+                <code>git log --oneline</code>
+                <p>Shows a condensed version of the commit history.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Creating a Branch</h3>
+                <code>git branch branch-name</code>
+                <p>Creates a new branch.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Switching Branches</h3>
+                <code>git checkout branch-name</code>
+                <p>Switches to the specified branch.</p>
+                <code>git checkout -b new-branch</code>
+                <p>Creates and switches to a new branch in one command.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Merging Branches</h3>
+                <code>git merge branch-name</code>
+                <p>Merges the specified branch into the current branch.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Remote Repositories</h3>
+                <code>git remote add origin https://github.com/user/repo.git</code>
+                <p>Adds a remote repository.</p>
+                <code>git remote -v</code>
+                <p>Lists all remote repositories.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Pushing Changes</h3>
+                <code>git push origin branch-name</code>
+                <p>Uploads local branch commits to the remote repository.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Pulling Changes</h3>
+                <code>git pull origin branch-name</code>
+                <p>Downloads changes from the remote repository and merges them.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Stashing Changes</h3>
+                <code>git stash</code>
+                <p>Temporarily saves changes that you don't want to commit immediately.</p>
+                <code>git stash pop</code>
+                <p>Restores the most recently stashed changes.</p>
+            </div>
+            
+            <div class="command">
+                <h3>Reverting Changes</h3>
+                <code>git reset --hard HEAD</code>
+                <p>Discards all local changes in the working directory.</p>
+                <code>git revert commit-hash</code>
+                <p>Creates a new commit that undoes the changes from a previous commit.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="current-year"></span> Code Library. All rights reserved.</p>
+        <p><a href="../references.html">References</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+    <script src="../js/code-library.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
